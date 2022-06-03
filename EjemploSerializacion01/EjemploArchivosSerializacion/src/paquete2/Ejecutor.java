@@ -18,8 +18,8 @@ public class Ejecutor {
         Profesor profesor2 = new Profesor("Gregory Walsh", "nombramiento");
         Profesor profesor3 = new Profesor("Kevin Page", "nombramiento");
 
-        EscrituraArchivoSecuencial archivo = 
-                new EscrituraArchivoSecuencial(nombreArchivo);
+        EscrituraArchivoSecuencial archivo = new EscrituraArchivoSecuencial
+        (nombreArchivo);
         
         // establecer el valor del atributo registro
         archivo.establecerRegistroProfesor(profesor1);

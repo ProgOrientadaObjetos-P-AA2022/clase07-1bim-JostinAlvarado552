@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -18,14 +18,14 @@ import paquete1.Profesor;
 public class EscrituraArchivoSecuencial {
 
     private String nombreArchivo;
-    private ObjectOutputStream salida; 
+    private ObjectOutputStream salida;
     private Profesor registroProfesor;
     private ArrayList<Profesor> listaProfesores;
 
     public EscrituraArchivoSecuencial(String nombreArc) {
         nombreArchivo = nombreArc;
         establecerListaProfesores(); // obtener los valores (objetos)
-                                    // que tiene el archivo.
+        // que tiene el archivo.
         try // abre el archivo
         {
             salida = new ObjectOutputStream(
@@ -42,8 +42,8 @@ public class EscrituraArchivoSecuencial {
             System.err.println("Error al abrir el archivo.");
         } // fin de catch
     }
-    
-    public void establecerNombreArchivo(String n){
+
+    public void establecerNombreArchivo(String n) {
         nombreArchivo = n;
     }
 
@@ -54,7 +54,7 @@ public class EscrituraArchivoSecuencial {
     public void establecerSalida() {
         try {
             salida.writeObject(registroProfesor); // envía el registro como 
-                                                  // objeto al archivo
+            // objeto al archivo
         } catch (IOException ex) {
             System.err.println("Error al escribir en el archivo.");
         }
@@ -63,23 +63,24 @@ public class EscrituraArchivoSecuencial {
     // en el atributo listaProfesores obtenemos los registros 
     // del archivo
     public void establecerListaProfesores() {
-        LecturaArchivoSecuencial l = 
-                new LecturaArchivoSecuencial(obtenerNombreArchivo());
+        LecturaArchivoSecuencial l
+                = new LecturaArchivoSecuencial(obtenerNombreArchivo());
         l.establecerProfesores();
         listaProfesores = l.obtenerProfesores();
     }
 
-    public String obtenerNombreArchivo(){
+    public String obtenerNombreArchivo() {
         return nombreArchivo;
     }
-    
+
     public ArrayList<Profesor> obtenerListaProfesores() {
         return listaProfesores;
     }
 
-    public ObjectOutputStream obtenerSalida(){
+    public ObjectOutputStream obtenerSalida() {
         return salida;
     }
+
     public void cerrarArchivo() {
         try // cierra el archivo
         {
@@ -89,8 +90,8 @@ public class EscrituraArchivoSecuencial {
         } // fin de try
         catch (IOException ioException) {
             System.err.println("Error al cerrar el archivo.");
-            
+
         } // fin de catch
-    } 
+    }
 
 }
